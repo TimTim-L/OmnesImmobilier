@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes Rendez-vous - Omnes Immobilier</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .rdv-card {
+      border-radius: 0.75rem;
+      border: 1px solid #dee2e6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .rdv-card:hover {
+      transform: translateY(-2px);
+    }
+    .agent-photo {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .status-badge {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 1rem;
+    }
+    .status-confirmed {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    .status-pending {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+    .status-cancelled {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    .status-completed {
+      background-color: #e2e3e5;
+      color: #383d41;
+    }
+    .btn-primary {
+      background-color: #212529;
+      border-color: #212529;
+      border-radius: 0.5rem;
+    }
+    .btn-primary:hover {
+      background-color: #343a40;
+      border-color: #343a40;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: #6c757d;
+    }
+    .empty-state i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      color: #dee2e6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Omnes Immobilier</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+        <li class="nav-item"><a class="nav-link" href="tout_parcourir.html">Tout Parcourir</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Recherche</a></li>
+        <li class="nav-item"><a class="nav-link active" href="prise_rdv.html">Rendez-vous</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Votre Compte</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENU PRINCIPAL -->
+<div class="container my-5">
+  <h1 class="text-center mb-5"><i class="bi bi-calendar-check"></i> Mes Rendez-vous</h1>
+
+  <!-- RENDEZ-VOUS À VENIR -->
+  <section class="mb-5">
+    <h2 class="mb-4"><i class="bi bi-arrow-right-circle"></i> Rendez-vous à venir</h2>
+    
+    <div class="row g-4">
+      <!-- RDV 1 - Confirmé -->
+      <div class="col-lg-6">
+        <div class="card rdv-card">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start">
+              <img src="img/agent1.jpg" alt="Jean-Pierre SEGADO" class="agent-photo me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="card-title mb-0">Jean-Pierre SEGADO</h5>
+                  <span class="badge status-confirmed">Confirmé</span>
+                </div>
+                <p class="text-muted mb-2">Agent Immobilier agréé - Résidentiel</p>
+                
+                <div class="mb-3">
+                  <p class="mb-1"><i class="bi bi-calendar-event"></i> <strong>Date :</strong> Vendredi 6 juin 2025</p>
+                  <p class="mb-1"><i class="bi bi-clock"></i> <strong>Heure :</strong> 14h30 - 15h30</p>
+                  <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Adresse :</strong> 12 Rue de la Liberté, 75014 Paris</p>
+                  <p class="mb-1"><i class="bi bi-house-door"></i> <strong>Bien :</strong> Maison 5 pièces - Ref: MAI2025-001</p>
+                  <p class="mb-2"><i class="bi bi-info-circle"></i> <strong>Infos :</strong> Digicode: A1234 - Sonner au nom MARTIN</p>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button class="btn btn-primary btn-sm">
+                    <i class="bi bi-telephone"></i> Contacter l'agent
+                  </button>
+                  <button class="btn btn-outline-danger btn-sm" onclick="showCancelModal('rdv1')">
+                    <i class="bi bi-x-circle"></i> Annuler le RDV
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RDV 2 - En attente -->
+      <div class="col-lg-6">
+        <div class="card rdv-card">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start">
+              <img src="img/agent2.jpg" alt="Marie DUBOIS" class="agent-photo me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="card-title mb-0">Marie DUBOIS</h5>
+                  <span class="badge status-pending">En attente</span>
+                </div>
+                <p class="text-muted mb-2">Spécialiste Immobilier Commercial</p>
+                
+                <div class="mb-3">
+                  <p class="mb-1"><i class="bi bi-calendar-event"></i> <strong>Date :</strong> Lundi 9 juin 2025</p>
+                  <p class="mb-1"><i class="bi bi-clock"></i> <strong>Heure :</strong> 10h00 - 11h00</p>
+                  <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Adresse :</strong> 45 Avenue des Champs, 75008 Paris</p>
+                  <p class="mb-1"><i class="bi bi-building"></i> <strong>Bien :</strong> Bureau 200m² - Ref: BUR2025-015</p>
+                  <p class="mb-2"><i class="bi bi-info-circle"></i> <strong>Infos :</strong> RDV en attente de confirmation</p>
+                </div>
+
+                <div class="d-flex gap-2">
+                  <button class="btn btn-primary btn-sm">
+                    <i class="bi bi-telephone"></i> Contacter l'agent
+                  </button>
+                  <button class="btn btn-outline-danger btn-sm" onclick="showCancelModal('rdv2')">
+                    <i class="bi bi-x-circle"></i> Annuler le RDV
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORIQUE DES RENDEZ-VOUS -->
+  <section class="mb-5">
+    <h2 class="mb-4"><i class="bi bi-clock-history"></i> Historique des rendez-vous</h2>
+    
+    <div class="row g-4">
+      <!-- RDV Passé 1 - Terminé -->
+      <div class="col-lg-6">
+        <div class="card rdv-card opacity-75">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start">
+              <img src="img/agent3.jpg" alt="Pierre MARTIN" class="agent-photo me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="card-title mb-0">Pierre MARTIN</h5>
+                  <span class="badge status-completed">Terminé</span>
+                </div>
+                <p class="text-muted mb-2">Conseiller Immobilier Résidentiel</p>
+                
+                <div class="mb-3">
+                  <p class="mb-1"><i class="bi bi-calendar-event"></i> <strong>Date :</strong> Mercredi 22 mai 2025</p>
+                  <p class="mb-1"><i class="bi bi-clock"></i> <strong>Heure :</strong> 16h00 - 17h00</p>
+                  <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Adresse :</strong> 8 Rue Victor Hugo, 75016 Paris</p>
+                  <p class="mb-1"><i class="bi bi-house-door"></i> <strong>Bien :</strong> Appartement 3 pièces - Ref: APP2025-078</p>
+                </div>
+
+                <button class="btn btn-outline-primary btn-sm">
+                  <i class="bi bi-pencil"></i> Laisser un avis
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RDV Annulé -->
+      <div class="col-lg-6">
+        <div class="card rdv-card opacity-50">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-start">
+              <img src="img/agent4.jpg" alt="Sophie BERNARD" class="agent-photo me-3">
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="card-title mb-0">Sophie BERNARD</h5>
+                  <span class="badge status-cancelled">Annulé</span>
+                </div>
+                <p class="text-muted mb-2">Expert en Terrains et Foncier</p>
+                
+                <div class="mb-3">
+                  <p class="mb-1"><i class="bi bi-calendar-event"></i> <strong>Date :</strong> Vendredi 17 mai 2025</p>
+                  <p class="mb-1"><i class="bi bi-clock"></i> <strong>Heure :</strong> 14h00 - 15h00</p>
+                  <p class="mb-1"><i class="bi bi-geo-alt"></i> <strong>Lieu :</strong> Terrain - Route de Versailles, 78000</p>
+                  <p class="mb-1"><i class="bi bi-tree"></i> <strong>Bien :</strong> Terrain 1200m² - Ref: TER2025-003</p>
+                  <p class="mb-2 text-danger"><i class="bi bi-exclamation-triangle"></i> <strong>Motif :</strong> Annulé par le client</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGE SI AUCUN RDV -->
+  <div id="noAppointments" class="empty-state" style="display: none;">
+    <i class="bi bi-calendar-x"></i>
+    <h3>Aucun rendez-vous programmé</h3>
+    <p class="text-muted">Vous n'avez actuellement aucun rendez-vous de prévu.</p>
+    <a href="tout_parcourir.html" class="btn btn-primary mt-3">
+      <i class="bi bi-search"></i> Trouver un bien
+    </a>
+  </div>
+</div>
+
+<!-- MODAL DE CONFIRMATION D'ANNULATION -->
+<div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cancelModalLabel"><i class="bi bi-exclamation-triangle text-danger"></i> Confirmer l'annulation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Êtes-vous sûr de vouloir annuler ce rendez-vous ?</p>
+        <p class="text-muted">Cette action est irréversible. Le créneau sera libéré et disponible pour d'autres clients.</p>
+        <div class="alert alert-warning mt-3">
+          <i class="bi bi-info-circle"></i> Les annulations répétées peuvent entraîner des restrictions sur votre compte.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <i class="bi bi-x-lg"></i> Non, garder le RDV
+        </button>
+        <button type="button" class="btn btn-danger" onclick="cancelAppointment()">
+          <i class="bi bi-check-lg"></i> Oui, annuler le RDV
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST DE CONFIRMATION -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="cancelToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-white">
+      <strong class="me-auto"><i class="bi bi-check-circle"></i> Rendez-vous annulé</strong>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Votre rendez-vous a été annulé avec succès. Un email de confirmation vous a été envoyé.
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+let appointmentToCancel = null;
+
+// Afficher la modal d'annulation
+function showCancelModal(appointmentId) {
+  appointmentToCancel = appointmentId;
+  const modal = new bootstrap.Modal(document.getElementById('cancelModal'));
+  modal.show();
+}
+
+// Confirmer l'annulation
+function cancelAppointment() {
+  if (appointmentToCancel) {
+    // Trouver la carte du RDV
+    const cardElement = document.querySelector(`[data-rdv-id="${appointmentToCancel}"]`) || 
+                       document.querySelector(`button[onclick="showCancelModal('${appointmentToCancel}')"]`).closest('.card');
+    
+    if (cardElement) {
+      // Animation de suppression
+      cardElement.style.transition = 'all 0.5s ease';
+      cardElement.style.opacity = '0';
+      cardElement.style.transform = 'translateX(-100%)';
+      
+      setTimeout(() => {
+        cardElement.remove();
+        
+        // Vérifier s'il reste des RDV
+        checkNoAppointments();
+        
+        // Afficher le toast de confirmation
+        const toast = new bootstrap.Toast(document.getElementById('cancelToast'));
+        toast.show();
+      }, 500);
+    }
+    
+    // Fermer le modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('cancelModal'));
+    modal.hide();
+    
+    appointmentToCancel = null;
+  }
+}
+
+// Vérifier s'il n'y a plus de RDV
+function checkNoAppointments() {
+  const upcomingSection = document.querySelector('#upcomingAppointments');
+  if (!upcomingSection || upcomingSection.querySelectorAll('.card').length === 0) {
+    document.getElementById('noAppointments').style.display = 'block';
+  }
+}
+
+// Ajouter les data-attributes pour faciliter l'identification
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.rdv-card');
+  cards.forEach((card, index) => {
+    const button = card.querySelector('button[onclick*="showCancelModal"]');
+    if (button) {
+      const rdvId = button.getAttribute('onclick').match(/'([^']+)'/)[1];
+      card.setAttribute('data-rdv-id', rdvId);
+    }
+  });
+  
+  // Vérifier au chargement s'il n'y a pas de RDV
+  checkNoAppointments();
+});
+</script>
+
+</body>
+</html>

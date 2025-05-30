@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail de l'annonce - Omnes Immobilier</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            padding-bottom: 50px;
+        }
+        .property-header {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .property-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .info-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .agent-info img {
+            max-width: 100px;
+            border-radius: 50%;
+        }
+        .btn-omnes {
+            background-color: #111;
+            color: white;
+        }
+        .btn-omnes:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Omnes Immobilier</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="tout_parcourir.html">Tout Parcourir</a></li>
+            <li class="nav-item"><a class="nav-link" href="recherche.html">Recherche</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Rendez-vous</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Votre Compte</a></li>
+        </ul>
+    </div>
+</div>
+</nav>
+
+
+<header class="property-header">
+    <h1>Maison de charme à Paris 16e</h1>
+</header>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-7">
+            <img src="images/maison1.jpg" alt="Maison à vendre" class="property-image">
+        </div>
+        <div class="col-md-5 info-section">
+            <h4>Description</h4>
+            <p>Charmante maison de ville de 120 m², 4 chambres, 2 salles de bain, balcon, garage et jardin. Située dans un quartier résidentiel calme proche des commodités.</p>
+            <h5 class="mt-3">Informations supplémentaires</h5>
+            <ul>
+                <li>Prix : 850 000 €</li>
+                <li>Surface : 120 m²</li>
+                <li>Adresse : 75 Rue de Passy, 75016 Paris</li>
+                <li>Balcon : Oui</li>
+                <li>Parking : Oui</li>
+            </ul>
+            <h5 class="mt-3">Agent responsable</h5>
+            <div class="agent-info d-flex align-items-center gap-3">
+                <img src="images/agent1.jpg" alt="Agent immobilier">
+                <div>
+                    <strong>Jean-Pierre SEGADO</strong><br>
+                    Tél : +33 1 23 45 67 89<br>
+                    Email : jean-pierre.segado@omnesimmobilier.fr
+                </div>
+            </div>
+            <div class="mt-3">
+                <a href="CV_agent.html" class="btn btn-omnes btn-sm me-2">Voir son CV</a>
+                <a href="prise_rdv.html" class="btn btn-omnes btn-sm me-2">Prendre RDV</a>
+                <a href="contacter.html" class="btn btn-omnes btn-sm">Contacter</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 info-section">
+        <h4>Vidéo de présentation</h4>
+        <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/0fAjIWjS1h8"Vidéo maison" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+</body>
+</html>

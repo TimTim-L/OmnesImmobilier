@@ -1,0 +1,93 @@
+body {
+ font-family: 'Segoe UI', sans-serif;
+}
+
+header {
+ background-image: url('background.gif');
+ background-size: cover;
+ background-position: center;
+ color: white;
+ min-height: 500px; /* augmenté pour une zone plus grande */
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+
+
+header h1, header p {
+ text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.carousel img {
+ height: 400px;
+ object-fit: cover;
+}
+
+.carousel-control-prev, .carousel-control-next {
+ background-color: rgba(0, 0, 0, 0.4); /* fond semi-transparent pour lisibilité */
+ width: 60px;
+ height: 60px;
+ top: 40%; /* pour bien les placer verticalement */
+ border-radius: 50%;
+}
+
+.card ul li h5 {
+ color: #343a40;
+}
+
+.card ul li p {
+ color: #6c757d;
+}
+.bulletin-title {
+ background-color: #f5f5f5;
+ padding: 10px 15px;
+ border-left: 4px solid #000;
+ border-radius: 6px;
+ font-weight: bold;
+ color: #212529;
+ margin-bottom: 8px;
+}
+
+.bulletin-box:hover {
+ box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bulletin-item i {
+ font-size: 1.3rem;
+ vertical-align: middle;
+}
+.footer-wrapper {
+ width: 100vw;
+ position: relative;
+ left: 50%;
+ right: 50%;
+ margin-left: -50vw;
+ margin-right: -50vw;
+ background-color: #212529;
+}
+.section-qui-sommes-nous {
+ background-color: #f8f9fa;
+ padding: 60px 20px;
+ border-radius: 15px;
+ box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.qui-card {
+ background-color: white;
+ padding: 25px;
+ border-radius: 12px;
+ box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+ transition: transform 0.2s ease;
+}
+
+.qui-card:hover {
+ transform: translateY(-5px);
+}
+
+.qui-icon {
+ font-size: 2rem;
+ color: #007bff;
+ margin-bottom: 10px;
+}
